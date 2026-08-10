@@ -1,0 +1,74 @@
+@import './vars.css';
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.auth-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px 16px;
+}
+
+.auth-card{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  border:1px solid var(--border);
+  position:relative;
+}
+
+.auth-title{
+  margin:0 0 8px 0;
+  font-size:20px;
+}
+
+.auth-sub{
+  margin:0 0 18px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.auth-form{display:flex;flex-direction:column;gap:var(--gap)}
+.auth-input{padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);outline:none}
+.auth-input::placeholder{color:var(--muted)}
+.auth-row{display:flex;gap:10px}
+.auth-btn{margin-top:6px;padding:12px 14px;border-radius:8px;border:none;background:var(--accent);color:var(--accent-contrast);cursor:pointer;font-weight:600}
+.auth-link{color:var(--accent);text-decoration:none;font-size:13px}
+
+.muted{color:var(--muted);font-size:13px}
+
+.theme-toggle{
+  position:absolute;
+  right:12px;
+  top:12px;
+}
+
+.theme-toggle button{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:6px;border-radius:6px}
+.theme-toggle button:hover{color:var(--text);background:rgba(0,0,0,0.04)}
+
+/* Navbar */
+.app-navbar{background:transparent;padding:12px 18px;border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.nav-brand{font-weight:800;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand-mark{width:34px;height:34px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-contrast);background:var(--accent);box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+.nav-links{margin-left:12px;display:flex;align-items:center;gap:14px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 8px;border-radius:8px}
+.nav-links a:hover{color:var(--text);background:rgba(0,0,0,0.04)}
+
+@media (max-width:600px){
+  .nav-inner{padding:0 8px}
+  .nav-links{display:none}
+}
