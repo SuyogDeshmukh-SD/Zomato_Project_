@@ -1,14 +1,37 @@
 import React from 'react'
 import '../styles/vars.css'
 import '../styles/auth.css'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const UserRegister = () => {
+    const navigate = useNavigate();
+    const handleSubmit =async (e) => {
+e.preventDefault();
+        const FullName = e.target[0].value;
+        const Email = e.target[1].value;
+        const Password = e.target[2].value;
+console.log(FullName, Email, Password);
+
+      const responce=  await axios.post("http://localhost:3000/api/auth/user/register",{
+            fullName: FullName,
+            email: Email,
+            password: Password
+        },{
+            withCredentials: true
+        })
+        navigate("/")
+
+    }
+
+
+
     return (
         <div className="auth-page">
             <div className="auth-card">
                 <h2 className="auth-title">Create your account</h2>
                 <p className="auth-sub">Sign up as a user to order delicious meals.</p>
-                <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
+                <form className="auth-form" onSubmit={function(e){handleSubmit(e)}}>
                     <input className="auth-input" placeholder="Full name" />
                     <input className="auth-input" placeholder="Email address" />
                     <input className="auth-input" placeholder="Password" type="password" />
